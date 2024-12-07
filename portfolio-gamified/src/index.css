@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply bg-dark-primary text-gray-100;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Navigation */
+  .nav-link {
+    @apply text-gray-200 hover:text-accent transition-colors duration-300;
+  }
+
+  .nav-link.active {
+    @apply text-accent;
+  }
+
+  .navbar-glass {
+    @apply bg-dark-primary/80 backdrop-blur-lg border-b border-white/10;
+  }
+
+  /* Form Fields */
+  .form-field input,
+  .form-field textarea {
+    @apply w-full p-3 rounded-lg;
+    @apply bg-white/10 text-white border border-white/20;
+    @apply focus:border-accent focus:ring-2 focus:ring-accent/50;
+    @apply placeholder-white/50;
+    @apply transition-all duration-300;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    @apply transform -translate-y-1;
+    @apply shadow-lg shadow-accent/10;
+    @apply outline-none;
+  }
+
+  /* Skill Tags */
+  .skill-tag {
+    @apply px-4 py-2 rounded-full;
+    @apply bg-white/20 backdrop-blur-sm;
+    @apply text-white text-sm font-medium;
+    @apply hover:bg-accent/80 hover:scale-105;
+    @apply transition-all duration-300 cursor-pointer;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  /* Contact Cards */
+  .contact-card {
+    @apply bg-white/10 backdrop-blur-lg;
+    @apply p-8 rounded-2xl shadow-xl;
+    @apply transform hover:scale-105;
+    @apply transition-all duration-300;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(100px, -100px) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* Text Effects */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-400 to-cyan-300;
+  @apply bg-clip-text text-transparent;
+}
+
+/* Scrollbar Styling */
+@layer utilities {
+  /* Webkit browsers */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-primary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent/50 rounded-full;
+    @apply hover:bg-accent/70;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.accent') theme('colors.dark-primary');
+  }
+}
+
+/* Form Field Focus Styles */
+.form-field input:focus,
+.form-field textarea:focus {
+  @apply ring-2 ring-accent/50;
+  @apply border-accent;
+  @apply shadow-lg shadow-accent/10;
+}
+
+/* Textarea Specific Styles */
+textarea {
+  @apply resize-none;
+  min-height: 120px;
+}
+
+/* Card Hover Effects */
+.contact-card:hover {
+  @apply transform -translate-y-1;
+  @apply shadow-xl shadow-accent/20;
+}
+
+/* Particle Animation */
+.particle {
+  @apply absolute rounded-full;
+  @apply bg-white/20;
+  animation: float 10s infinite linear;
+}
+
+/* Add these specific styles */
+input, textarea {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+input:focus, textarea:focus {
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.skill-tag {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: rgba(59, 130, 246, 0.4);
+  transform: scale(1.05);
+}
+
